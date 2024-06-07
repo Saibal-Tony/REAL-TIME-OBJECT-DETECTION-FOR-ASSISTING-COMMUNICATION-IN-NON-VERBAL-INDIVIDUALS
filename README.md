@@ -51,8 +51,14 @@ cd workspace
 cd models
 cd my_ssd_mobnet
 cd train
-tensorboard --logdir=. (For the graph)
-click on the link - [click here](http://localhost:6006/)
+```
+For the graph
+```bash
+tensorboard --logdir=. 
+```
+click on the link for results 
+```bash
+http://localhost:6006/
 ```
 
 
@@ -60,6 +66,12 @@ click on the link - [click here](http://localhost:6006/)
 ```bash
 cd ..
 cd eval
-tensorboard --logdir=. (For the graph)
-click on the link - [click here](http://localhost:6006/)
+```
+For the graph
+```bash
+tensorboard --logdir=. 
+```
+click on the link for results 
+```bash
+http://localhost:6006/
 ```
