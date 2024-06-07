@@ -1,0 +1,26 @@
+<annotation>
+	<folder>C</folder>
+	<filename>C.1f94f4b4-177b-11ee-8eb7-2811a889ff48.jpg</filename>
+	<path>D:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\Tensorflow\workspace\images\collectedimages\C\C.1f94f4b4-177b-11ee-8eb7-2811a889ff48.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>480</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>C</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>42</xmin>
+			<ymin>317</ymin>
+			<xmax>201</xmax>
+			<ymax>480</ymax>
+		</bndbox>
+	</object>
+</annotation>
