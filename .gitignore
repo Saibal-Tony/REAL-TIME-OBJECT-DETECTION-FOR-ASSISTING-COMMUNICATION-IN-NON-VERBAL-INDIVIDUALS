@@ -1,0 +1,101 @@
+# ─────────────────────────────────────────────
+# Virtual Environment
+# ─────────────────────────────────────────────
+ObjEnv/
+venv/
+.env/
+.venv/
+
+# ─────────────────────────────────────────────
+# Python
+# ─────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# ─────────────────────────────────────────────
+# Jupyter
+# ─────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ─────────────────────────────────────────────
+# TensorFlow — Large model files (don't upload)
+# ─────────────────────────────────────────────
+Tensorflow/workspace/pre-trained-models/
+Tensorflow/workspace/models/my_ssd_mobnet_initial/
+Tensorflow/workspace/models/my_ssd_mobnet_final/
+Tensorflow/models/
+
+# Keep exported model folder structure but not weights
+Tensorflow/workspace/models/**/saved_model/
+Tensorflow/workspace/models/**/*.index
+Tensorflow/workspace/models/**/*.data-00000-of-00001
+Tensorflow/workspace/models/**/checkpoint
+
+# ─────────────────────────────────────────────
+# TF Records (generated, not needed in repo)
+# ─────────────────────────────────────────────
+*.record
+*.tfrecord
+
+# ─────────────────────────────────────────────
+# Dataset Images (too large for GitHub)
+# ─────────────────────────────────────────────
+Tensorflow/workspace/images/collectedimages/
+Tensorflow/workspace/images/train/
+Tensorflow/workspace/images/test/
+Tensorflow/workspace/images/train_label/
+Tensorflow/workspace/images/test_label/
+
+# ─────────────────────────────────────────────
+# KEEP these annotation files (small, important)
+# ─────────────────────────────────────────────
+# !Tensorflow/workspace/annotations/label_map.pbtxt
+# !Tensorflow/workspace/images/collectedimages/**/*.xml
+
+# ─────────────────────────────────────────────
+# Logs
+# ─────────────────────────────────────────────
+logs/
+*.log
+train/events.out.tfevents.*
+
+# ─────────────────────────────────────────────
+# VS Code
+# ─────────────────────────────────────────────
+.vscode/
+*.code-workspace
+
+# ─────────────────────────────────────────────
+# Generated / Temp Files
+# ─────────────────────────────────────────────
+train_wrapper.py
+manual_review.json
+*.tar.gz
+*.zip
+downloads/
+outputs/
+results/
+protoc*/
+
+# ─────────────────────────────────────────────
+# OS Files
+# ─────────────────────────────────────────────
+Thumbs.db
+.DS_Store
+desktop.ini
+*~
+
+# ─────────────────────────────────────────────
+# Large binary files
+# ─────────────────────────────────────────────
+*.dll
+*.pyd
+*.so
+*.pb
+*.tflite
+*.h5

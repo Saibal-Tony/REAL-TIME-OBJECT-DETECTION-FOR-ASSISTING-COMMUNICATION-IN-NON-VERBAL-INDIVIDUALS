@@ -1,0 +1,18 @@
+LabelImg Quick Guide
+When it opens:
+
+Click Open Dir → select your collectedimages folder
+Click Change Save Dir → select your annotations folder
+Make sure format is PascalVOC (creates .xml files) — check bottom left
+For each image:
+
+Press W → draw box around gesture
+Type the class name (e.g. A, B, etc.)
+Press Ctrl+S to save
+Press D to go next image
+
+
+
+
+Keyboard Shortcuts (saves a lot of time!)
+KeyActionWDraw bounding boxDNext imageAPrevious imageCtrl+SSaveCtrl+DDuplicate labelDelDelete box

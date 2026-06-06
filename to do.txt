@@ -1,0 +1,8 @@
+change the batch size in pipline.cofig 
+
+train_config {
+  batch_size: 2 // to 2 for 4GB VRAM 
+  data_augmentation_options {
+    random_horizontal_flip {
+    }
+  }
