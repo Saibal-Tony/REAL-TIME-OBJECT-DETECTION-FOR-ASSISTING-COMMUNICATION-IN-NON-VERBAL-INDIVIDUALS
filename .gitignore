@@ -29,6 +29,9 @@ Tensorflow/workspace/pre-trained-models/
 Tensorflow/workspace/models/my_ssd_mobnet_initial/
 Tensorflow/workspace/models/my_ssd_mobnet_final/
 Tensorflow/models/
+Tensorflow/workspace/models/my_ssd_mobnet_ALL_1
+Tensorflow/workspace/models/my_ssd_mobnet_ALL_2
+Tensorflow/workspace/models/my_ssd_mobnet_v2
 
 # Keep exported model folder structure but not weights
 Tensorflow/workspace/models/**/saved_model/
