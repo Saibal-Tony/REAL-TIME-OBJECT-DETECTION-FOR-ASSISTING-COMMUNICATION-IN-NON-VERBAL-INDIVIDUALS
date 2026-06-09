@@ -1,0 +1,825 @@
+✅ GPU memory cleared
+▶️  Starting training (3000 steps)...
+   Loss will print every 100 steps
+
+e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\google\api_core\_python_version_support.py:246: FutureWarning: You are using a non-supported Python version (3.9.13). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\google\auth\__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\google\oauth2\__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\tensorflow_addons\utils\tfa_eol_msg.py:23: UserWarning: 
+
+TensorFlow Addons (TFA) has ended development and introduction of new features.
+TFA has entered a minimal maintenance and release mode until a planned end of life in May 2024.
+Please modify downstream libraries to take dependencies from other repositories in our TensorFlow community (e.g. Keras, Keras-CV, and Keras-NLP). 
+
+For more information see: https://github.com/tensorflow/addons/issues/2807 
+
+  warnings.warn(
+e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\tensorflow_addons\utils\ensure_tf_install.py:53: UserWarning: Tensorflow Addons supports using Python ops for all Tensorflow versions above or equal to 2.12.0 and strictly below 2.15.0 (nightly versions are not supported). 
+ The versions of TensorFlow you are currently using is 2.10.1 and is not supported. 
+Some things might work, some things might not.
+If you were to encounter a bug, do not file an issue.
+If you want to make sure you're using a tested and supported configuration, either change the TensorFlow version or the TensorFlow Addons's version. 
+You can find the compatibility matrix in TensorFlow Addon's readme:
+https://github.com/tensorflow/addons
+  warnings.warn(
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:GPU:0',)
+I0609 13:45:10.348853 22876 mirrored_strategy.py:374] Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:GPU:0',)
+INFO:tensorflow:Maybe overwriting train_steps: 3000
+I0609 13:45:10.370090 22876 config_util.py:552] Maybe overwriting train_steps: 3000
+INFO:tensorflow:Maybe overwriting use_bfloat16: False
+I0609 13:45:10.370090 22876 config_util.py:552] Maybe overwriting use_bfloat16: False
+WARNING:tensorflow:From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\object_detection\model_lib_v2.py:563: StrategyBase.experimental_distribute_datasets_from_function (from tensorflow.python.distribute.distribute_lib) is deprecated and will be removed in a future version.
+Instructions for updating:
+rename to distribute_datasets_from_function
+W0609 13:45:10.519726 22876 deprecation.py:350] From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\object_detection\model_lib_v2.py:563: StrategyBase.experimental_distribute_datasets_from_function (from tensorflow.python.distribute.distribute_lib) is deprecated and will be removed in a future version.
+Instructions for updating:
+rename to distribute_datasets_from_function
+INFO:tensorflow:Reading unweighted datasets: ['Tensorflow\\workspace\\annotations\\train.record']
+I0609 13:45:10.609981 22876 dataset_builder.py:162] Reading unweighted datasets: ['Tensorflow\\workspace\\annotations\\train.record']
+INFO:tensorflow:Reading record datasets for input file: ['Tensorflow\\workspace\\annotations\\train.record']
+I0609 13:45:10.624788 22876 dataset_builder.py:79] Reading record datasets for input file: ['Tensorflow\\workspace\\annotations\\train.record']
+INFO:tensorflow:Number of filenames to read: 1
+I0609 13:45:10.624788 22876 dataset_builder.py:80] Number of filenames to read: 1
+WARNING:tensorflow:num_readers has been reduced to 1 to match input file shards.
+W0609 13:45:10.624788 22876 dataset_builder.py:86] num_readers has been reduced to 1 to match input file shards.
+WARNING:tensorflow:From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\object_detection\builders\dataset_builder.py:100: parallel_interleave (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.AUTOTUNE)` instead. If sloppy execution is desired, use `tf.data.Options.deterministic`.
+W0609 13:45:10.751172 22876 deprecation.py:350] From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\object_detection\builders\dataset_builder.py:100: parallel_interleave (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.AUTOTUNE)` instead. If sloppy execution is desired, use `tf.data.Options.deterministic`.
+WARNING:tensorflow:From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\object_detection\builders\dataset_builder.py:235: DatasetV1.map_with_legacy_function (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.map()
+W0609 13:45:10.955153 22876 deprecation.py:350] From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\object_detection\builders\dataset_builder.py:235: DatasetV1.map_with_legacy_function (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.map()
+WARNING:tensorflow:From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\tensorflow\python\util\dispatch.py:1176: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+W0609 13:45:18.388260 22876 deprecation.py:350] From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\tensorflow\python\util\dispatch.py:1176: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+WARNING:tensorflow:From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\tensorflow\python\util\dispatch.py:1176: sample_distorted_bounding_box (from tensorflow.python.ops.image_ops_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+`seed2` arg is deprecated.Use sample_distorted_bounding_box_v2 instead.
+W0609 13:45:23.609048 22876 deprecation.py:350] From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\tensorflow\python\util\dispatch.py:1176: sample_distorted_bounding_box (from tensorflow.python.ops.image_ops_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+`seed2` arg is deprecated.Use sample_distorted_bounding_box_v2 instead.
+WARNING:tensorflow:From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\tensorflow\python\util\dispatch.py:1176: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+W0609 13:45:25.911845 22876 deprecation.py:350] From e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\tensorflow\python\util\dispatch.py:1176: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+e:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\ObjEnv\lib\site-packages\keras\backend.py:451: UserWarning: `tf.keras.backend.set_learning_phase` is deprecated and will be removed after 2020-10-11. To update it, simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+  warnings.warn(
+I0609 13:45:39.948335 25280 api.py:459] feature_map_spatial_dims: [(80, 80), (40, 40), (20, 20), (10, 10), (5, 5)]
+I0609 13:45:51.027052 14988 api.py:459] feature_map_spatial_dims: [(80, 80), (40, 40), (20, 20), (10, 10), (5, 5)]
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:05.683166 22876 cross_device_ops.py:616] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:05.686187 22876 cross_device_ops.py:616] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:05.689685 22876 cross_device_ops.py:616] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:05.690694 22876 cross_device_ops.py:616] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:05.694707 22876 cross_device_ops.py:616] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:05.696722 22876 cross_device_ops.py:616] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:05.700775 22876 cross_device_ops.py:616] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:05.700775 22876 cross_device_ops.py:616] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:05.704919 22876 cross_device_ops.py:616] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+INFO:tensorflow:Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:05.705918 22876 cross_device_ops.py:616] Reduce to /job:localhost/replica:0/task:0/device:CPU:0 then broadcast to ('/job:localhost/replica:0/task:0/device:CPU:0',).
+I0609 13:46:08.317039 25032 api.py:459] feature_map_spatial_dims: [(80, 80), (40, 40), (20, 20), (10, 10), (5, 5)]
+I0609 13:46:16.329895 25228 api.py:459] feature_map_spatial_dims: [(80, 80), (40, 40), (20, 20), (10, 10), (5, 5)]
+I0609 13:46:23.635956  7576 api.py:459] feature_map_spatial_dims: [(80, 80), (40, 40), (20, 20), (10, 10), (5, 5)]
+I0609 13:46:29.400782  9596 api.py:459] feature_map_spatial_dims: [(80, 80), (40, 40), (20, 20), (10, 10), (5, 5)]
+2026-06-09 13:47:06.149912: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:288] gpu_async_0 cuMemAllocAsync failed to allocate 3586031616 bytes: CUDA error: out of memory (CUDA_ERROR_OUT_OF_MEMORY)
+ Reported by CUDA: Free memory/Total memory: 1085014016/4294639616
+2026-06-09 13:47:06.205292: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:293] Stats: Limit:                      2355888128
+InUse:                       934877076
+MaxInUse:                   3722648308
+NumAllocs:                        5038
+MaxAllocSize:               3589144576
+Reserved:                            0
+PeakReserved:                        0
+LargestFreeBlock:                    0
+
+2026-06-09 13:47:06.206125: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:56] Histogram of current allocation: (allocation_size_in_bytes, nb_allocation_of_that_sizes), ...;
+2026-06-09 13:47:06.206457: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4, 51
+2026-06-09 13:47:06.206632: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 8, 80
+2026-06-09 13:47:06.206796: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 16, 1
+2026-06-09 13:47:06.206981: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20, 2
+2026-06-09 13:47:06.207133: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 24, 5
+2026-06-09 13:47:06.207300: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 32, 2
+2026-06-09 13:47:06.207475: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 40, 2
+2026-06-09 13:47:06.207752: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 64, 8
+2026-06-09 13:47:06.207948: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 80, 2
+2026-06-09 13:47:06.208233: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 96, 18
+2026-06-09 13:47:06.208474: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 100, 1
+2026-06-09 13:47:06.208745: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 128, 40
+2026-06-09 13:47:06.208916: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 160, 2
+2026-06-09 13:47:06.209069: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 192, 3
+2026-06-09 13:47:06.209245: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 200, 3
+2026-06-09 13:47:06.209414: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 256, 32
+2026-06-09 13:47:06.209570: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 320, 2
+2026-06-09 13:47:06.209775: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 384, 40
+2026-06-09 13:47:06.209916: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 512, 150
+2026-06-09 13:47:06.210090: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 576, 32
+2026-06-09 13:47:06.210241: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 600, 2
+2026-06-09 13:47:06.210398: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 640, 24
+2026-06-09 13:47:06.210607: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 768, 48
+2026-06-09 13:47:06.210825: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 800, 3
+2026-06-09 13:47:06.210998: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1028, 1
+2026-06-09 13:47:06.211148: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1152, 3
+2026-06-09 13:47:06.211284: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1280, 8
+2026-06-09 13:47:06.211419: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1536, 64
+2026-06-09 13:47:06.211616: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2048, 3
+2026-06-09 13:47:06.211804: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2304, 48
+2026-06-09 13:47:06.211966: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3200, 1
+2026-06-09 13:47:06.212173: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3456, 6
+2026-06-09 13:47:06.212342: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3840, 48
+2026-06-09 13:47:06.212495: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4608, 28
+2026-06-09 13:47:06.212666: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 5120, 8
+2026-06-09 13:47:06.212843: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 5184, 6
+2026-06-09 13:47:06.213013: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 6144, 3
+2026-06-09 13:47:06.213208: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 6912, 9
+2026-06-09 13:47:06.213349: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 9216, 3
+2026-06-09 13:47:06.213510: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 12288, 2
+2026-06-09 13:47:06.213746: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 13824, 21
+2026-06-09 13:47:06.213973: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 16384, 2
+2026-06-09 13:47:06.214282: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 18432, 3
+2026-06-09 13:47:06.214458: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 19200, 2
+2026-06-09 13:47:06.214636: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20736, 9
+2026-06-09 13:47:06.214822: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 24576, 15
+2026-06-09 13:47:06.214969: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 34560, 9
+2026-06-09 13:47:06.215110: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 49152, 5
+2026-06-09 13:47:06.215250: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 65536, 16
+2026-06-09 13:47:06.215408: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 76800, 2
+2026-06-09 13:47:06.215601: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 98304, 21
+2026-06-09 13:47:06.215808: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 147456, 3
+2026-06-09 13:47:06.215949: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 204600, 9
+2026-06-09 13:47:06.216144: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 221184, 15
+2026-06-09 13:47:06.216253: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 368640, 3
+2026-06-09 13:47:06.216438: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 512000, 6
+2026-06-09 13:47:06.216608: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 614400, 15
+2026-06-09 13:47:06.216727: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 655360, 2
+2026-06-09 13:47:06.216900: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 818400, 2
+2026-06-09 13:47:06.217088: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 819200, 8
+2026-06-09 13:47:06.217263: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1024000, 2
+2026-06-09 13:47:06.217431: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1228800, 10
+2026-06-09 13:47:06.217618: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1636800, 4
+2026-06-09 13:47:06.217789: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1638400, 12
+2026-06-09 13:47:06.217964: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1843200, 2
+2026-06-09 13:47:06.218151: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2457600, 2
+2026-06-09 13:47:06.218311: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3072000, 12
+2026-06-09 13:47:06.218521: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4096000, 1
+2026-06-09 13:47:06.218660: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4915200, 20
+2026-06-09 13:47:06.218786: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 7372800, 12
+2026-06-09 13:47:06.218932: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 9830400, 12
+2026-06-09 13:47:06.219087: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 10230000, 2
+2026-06-09 13:47:06.219273: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 18415616, 1
+2026-06-09 13:47:06.219493: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 19660800, 2
+2026-06-09 13:47:06.219695: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20460000, 2
+2026-06-09 13:47:06.219813: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 26214400, 2
+2026-06-09 13:47:06.219996: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 29491200, 6
+2026-06-09 13:47:06.220170: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 78643200, 2
+2026-06-09 13:47:11.307363: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:288] gpu_async_0 cuMemAllocAsync failed to allocate 3586031616 bytes: CUDA error: out of memory (CUDA_ERROR_OUT_OF_MEMORY)
+ Reported by CUDA: Free memory/Total memory: 1085014016/4294639616
+2026-06-09 13:47:11.308024: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:293] Stats: Limit:                      2355888128
+InUse:                       934877076
+MaxInUse:                   3722648308
+NumAllocs:                        5038
+MaxAllocSize:               3589144576
+Reserved:                            0
+PeakReserved:                        0
+LargestFreeBlock:                    0
+
+2026-06-09 13:47:11.308532: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:56] Histogram of current allocation: (allocation_size_in_bytes, nb_allocation_of_that_sizes), ...;
+2026-06-09 13:47:11.308746: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4, 51
+2026-06-09 13:47:11.308863: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 8, 80
+2026-06-09 13:47:11.308987: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 16, 1
+2026-06-09 13:47:11.309105: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20, 2
+2026-06-09 13:47:11.309239: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 24, 5
+2026-06-09 13:47:11.309363: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 32, 2
+2026-06-09 13:47:11.309469: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 40, 2
+2026-06-09 13:47:11.309580: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 64, 8
+2026-06-09 13:47:11.309693: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 80, 2
+2026-06-09 13:47:11.309838: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 96, 18
+2026-06-09 13:47:11.309947: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 100, 1
+2026-06-09 13:47:11.310052: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 128, 40
+2026-06-09 13:47:11.310156: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 160, 2
+2026-06-09 13:47:11.310449: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 192, 3
+2026-06-09 13:47:11.310751: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 200, 3
+2026-06-09 13:47:11.310954: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 256, 32
+2026-06-09 13:47:11.311099: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 320, 2
+2026-06-09 13:47:11.311221: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 384, 40
+2026-06-09 13:47:11.311335: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 512, 150
+2026-06-09 13:47:11.311450: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 576, 32
+2026-06-09 13:47:11.311690: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 600, 2
+2026-06-09 13:47:11.311861: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 640, 24
+2026-06-09 13:47:11.312083: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 768, 48
+2026-06-09 13:47:11.312277: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 800, 3
+2026-06-09 13:47:11.312471: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1028, 1
+2026-06-09 13:47:11.312705: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1152, 3
+2026-06-09 13:47:11.312892: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1280, 8
+2026-06-09 13:47:11.313114: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1536, 64
+2026-06-09 13:47:11.313271: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2048, 3
+2026-06-09 13:47:11.313488: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2304, 48
+2026-06-09 13:47:11.313690: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3200, 1
+2026-06-09 13:47:11.313906: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3456, 6
+2026-06-09 13:47:11.314076: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3840, 48
+2026-06-09 13:47:11.314254: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4608, 28
+2026-06-09 13:47:11.314400: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 5120, 8
+2026-06-09 13:47:11.314583: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 5184, 6
+2026-06-09 13:47:11.314741: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 6144, 3
+2026-06-09 13:47:11.314961: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 6912, 9
+2026-06-09 13:47:11.315189: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 9216, 3
+2026-06-09 13:47:11.315475: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 12288, 2
+2026-06-09 13:47:11.315699: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 13824, 21
+2026-06-09 13:47:11.315911: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 16384, 2
+2026-06-09 13:47:11.316161: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 18432, 3
+2026-06-09 13:47:11.316276: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 19200, 2
+2026-06-09 13:47:11.316405: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20736, 9
+2026-06-09 13:47:11.316524: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 24576, 15
+2026-06-09 13:47:11.316648: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 34560, 9
+2026-06-09 13:47:11.316768: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 49152, 5
+2026-06-09 13:47:11.316911: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 65536, 16
+2026-06-09 13:47:11.317036: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 76800, 2
+2026-06-09 13:47:11.317164: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 98304, 21
+2026-06-09 13:47:11.317284: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 147456, 3
+2026-06-09 13:47:11.317404: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 204600, 9
+2026-06-09 13:47:11.317530: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 221184, 15
+2026-06-09 13:47:11.317649: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 368640, 3
+2026-06-09 13:47:11.317773: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 512000, 6
+2026-06-09 13:47:11.317894: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 614400, 15
+2026-06-09 13:47:11.318041: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 655360, 2
+2026-06-09 13:47:11.318159: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 818400, 2
+2026-06-09 13:47:11.318284: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 819200, 8
+2026-06-09 13:47:11.318405: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1024000, 2
+2026-06-09 13:47:11.318522: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1228800, 10
+2026-06-09 13:47:11.318640: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1636800, 4
+2026-06-09 13:47:11.318753: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1638400, 12
+2026-06-09 13:47:11.318879: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1843200, 2
+2026-06-09 13:47:11.319014: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2457600, 2
+2026-06-09 13:47:11.319161: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3072000, 12
+2026-06-09 13:47:11.319418: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4096000, 1
+2026-06-09 13:47:11.319713: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4915200, 20
+2026-06-09 13:47:11.319991: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 7372800, 12
+2026-06-09 13:47:11.320138: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 9830400, 12
+2026-06-09 13:47:11.320276: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 10230000, 2
+2026-06-09 13:47:11.320419: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 18415616, 1
+2026-06-09 13:47:11.320543: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 19660800, 2
+2026-06-09 13:47:11.320689: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20460000, 2
+2026-06-09 13:47:11.320837: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 26214400, 2
+2026-06-09 13:47:11.320982: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 29491200, 6
+2026-06-09 13:47:11.321159: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 78643200, 2
+2026-06-09 13:47:16.495712: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:288] gpu_async_0 cuMemAllocAsync failed to allocate 3605856256 bytes: CUDA error: out of memory (CUDA_ERROR_OUT_OF_MEMORY)
+ Reported by CUDA: Free memory/Total memory: 1085014016/4294639616
+2026-06-09 13:47:16.496407: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:293] Stats: Limit:                      2355888128
+InUse:                       935286676
+MaxInUse:                   3722648308
+NumAllocs:                        5049
+MaxAllocSize:               3589144576
+Reserved:                            0
+PeakReserved:                        0
+LargestFreeBlock:                    0
+
+2026-06-09 13:47:16.497289: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:56] Histogram of current allocation: (allocation_size_in_bytes, nb_allocation_of_that_sizes), ...;
+2026-06-09 13:47:16.497519: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4, 51
+2026-06-09 13:47:16.497638: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 8, 80
+2026-06-09 13:47:16.497766: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 16, 1
+2026-06-09 13:47:16.497851: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20, 2
+2026-06-09 13:47:16.497984: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 24, 5
+2026-06-09 13:47:16.498100: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 32, 2
+2026-06-09 13:47:16.498225: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 40, 2
+2026-06-09 13:47:16.498334: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 64, 8
+2026-06-09 13:47:16.498455: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 80, 2
+2026-06-09 13:47:16.498578: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 96, 18
+2026-06-09 13:47:16.498690: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 100, 1
+2026-06-09 13:47:16.498810: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 128, 40
+2026-06-09 13:47:16.498910: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 160, 2
+2026-06-09 13:47:16.498999: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 192, 3
+2026-06-09 13:47:16.499147: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 200, 3
+2026-06-09 13:47:16.499268: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 256, 32
+2026-06-09 13:47:16.499584: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 320, 2
+2026-06-09 13:47:16.499891: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 384, 40
+2026-06-09 13:47:16.500013: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 512, 150
+2026-06-09 13:47:16.500128: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 576, 32
+2026-06-09 13:47:16.500206: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 600, 2
+2026-06-09 13:47:16.500320: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 640, 24
+2026-06-09 13:47:16.500442: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 768, 48
+2026-06-09 13:47:16.500580: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 800, 3
+2026-06-09 13:47:16.500696: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1028, 1
+2026-06-09 13:47:16.500814: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1152, 3
+2026-06-09 13:47:16.500947: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1280, 8
+2026-06-09 13:47:16.501067: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1536, 64
+2026-06-09 13:47:16.501178: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2048, 3
+2026-06-09 13:47:16.501286: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2304, 48
+2026-06-09 13:47:16.501418: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3200, 1
+2026-06-09 13:47:16.501581: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3456, 6
+2026-06-09 13:47:16.501724: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3840, 48
+2026-06-09 13:47:16.501866: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4608, 28
+2026-06-09 13:47:16.502017: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 5120, 8
+2026-06-09 13:47:16.502367: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 5184, 6
+2026-06-09 13:47:16.502722: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 6144, 3
+2026-06-09 13:47:16.502940: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 6912, 9
+2026-06-09 13:47:16.503048: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 9216, 3
+2026-06-09 13:47:16.503172: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 12288, 2
+2026-06-09 13:47:16.503298: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 13824, 21
+2026-06-09 13:47:16.503407: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 16384, 2
+2026-06-09 13:47:16.503544: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 18432, 3
+2026-06-09 13:47:16.503639: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 19200, 2
+2026-06-09 13:47:16.503768: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20736, 9
+2026-06-09 13:47:16.503881: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 24576, 15
+2026-06-09 13:47:16.503966: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 34560, 9
+2026-06-09 13:47:16.504025: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 49152, 5
+2026-06-09 13:47:16.504371: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 65536, 16
+2026-06-09 13:47:16.504672: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 76800, 2
+2026-06-09 13:47:16.504918: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 98304, 21
+2026-06-09 13:47:16.505038: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 147456, 3
+2026-06-09 13:47:16.505160: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 204600, 9
+2026-06-09 13:47:16.505274: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 221184, 15
+2026-06-09 13:47:16.505400: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 368640, 3
+2026-06-09 13:47:16.505516: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 512000, 6
+2026-06-09 13:47:16.505639: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 614400, 15
+2026-06-09 13:47:16.505797: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 655360, 2
+2026-06-09 13:47:16.505974: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 818400, 2
+2026-06-09 13:47:16.506072: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 819200, 8
+2026-06-09 13:47:16.506210: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1024000, 3
+2026-06-09 13:47:16.506339: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1228800, 10
+2026-06-09 13:47:16.506462: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1636800, 4
+2026-06-09 13:47:16.506611: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1638400, 12
+2026-06-09 13:47:16.506863: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1843200, 2
+2026-06-09 13:47:16.507203: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2457600, 2
+2026-06-09 13:47:16.507510: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3072000, 12
+2026-06-09 13:47:16.507811: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4096000, 1
+2026-06-09 13:47:16.507967: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4915200, 20
+2026-06-09 13:47:16.508091: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 7372800, 12
+2026-06-09 13:47:16.508228: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 9830400, 12
+2026-06-09 13:47:16.508375: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 10230000, 2
+2026-06-09 13:47:16.508507: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 17801216, 1
+2026-06-09 13:47:16.508629: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 19660800, 2
+2026-06-09 13:47:16.508746: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20460000, 2
+2026-06-09 13:47:16.508842: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 26214400, 2
+2026-06-09 13:47:16.508963: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 29491200, 6
+2026-06-09 13:47:16.509115: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 78643200, 2
+2026-06-09 13:47:22.612134: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:288] gpu_async_0 cuMemAllocAsync failed to allocate 3605856256 bytes: CUDA error: out of memory (CUDA_ERROR_OUT_OF_MEMORY)
+ Reported by CUDA: Free memory/Total memory: 1085014016/4294639616
+2026-06-09 13:47:22.612527: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:293] Stats: Limit:                      2355888128
+InUse:                       935286676
+MaxInUse:                   3722648308
+NumAllocs:                        5049
+MaxAllocSize:               3589144576
+Reserved:                            0
+PeakReserved:                        0
+LargestFreeBlock:                    0
+
+2026-06-09 13:47:22.613105: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:56] Histogram of current allocation: (allocation_size_in_bytes, nb_allocation_of_that_sizes), ...;
+2026-06-09 13:47:22.613366: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4, 51
+2026-06-09 13:47:22.613529: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 8, 80
+2026-06-09 13:47:22.613690: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 16, 1
+2026-06-09 13:47:22.613926: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20, 2
+2026-06-09 13:47:22.614242: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 24, 5
+2026-06-09 13:47:22.614542: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 32, 2
+2026-06-09 13:47:22.614685: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 40, 2
+2026-06-09 13:47:22.614796: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 64, 8
+2026-06-09 13:47:22.614937: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 80, 2
+2026-06-09 13:47:22.615050: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 96, 18
+2026-06-09 13:47:22.615150: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 100, 1
+2026-06-09 13:47:22.615290: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 128, 40
+2026-06-09 13:47:22.615395: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 160, 2
+2026-06-09 13:47:22.615513: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 192, 3
+2026-06-09 13:47:22.615642: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 200, 3
+2026-06-09 13:47:22.615760: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 256, 32
+2026-06-09 13:47:22.615883: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 320, 2
+2026-06-09 13:47:22.616001: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 384, 40
+2026-06-09 13:47:22.616120: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 512, 150
+2026-06-09 13:47:22.616306: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 576, 32
+2026-06-09 13:47:22.616450: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 600, 2
+2026-06-09 13:47:22.616623: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 640, 24
+2026-06-09 13:47:22.616770: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 768, 48
+2026-06-09 13:47:22.616942: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 800, 3
+2026-06-09 13:47:22.617209: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1028, 1
+2026-06-09 13:47:22.617406: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1152, 3
+2026-06-09 13:47:22.617622: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1280, 8
+2026-06-09 13:47:22.617758: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1536, 64
+2026-06-09 13:47:22.617883: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2048, 3
+2026-06-09 13:47:22.618035: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2304, 48
+2026-06-09 13:47:22.618173: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3200, 1
+2026-06-09 13:47:22.618308: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3456, 6
+2026-06-09 13:47:22.618438: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3840, 48
+2026-06-09 13:47:22.618581: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4608, 28
+2026-06-09 13:47:22.618717: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 5120, 8
+2026-06-09 13:47:22.618865: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 5184, 6
+2026-06-09 13:47:22.619004: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 6144, 3
+2026-06-09 13:47:22.619151: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 6912, 9
+2026-06-09 13:47:22.619286: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 9216, 3
+2026-06-09 13:47:22.619434: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 12288, 2
+2026-06-09 13:47:22.619579: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 13824, 21
+2026-06-09 13:47:22.619725: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 16384, 2
+2026-06-09 13:47:22.619886: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 18432, 3
+2026-06-09 13:47:22.619990: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 19200, 2
+2026-06-09 13:47:22.620155: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20736, 9
+2026-06-09 13:47:22.620292: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 24576, 15
+2026-06-09 13:47:22.620439: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 34560, 9
+2026-06-09 13:47:22.620595: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 49152, 5
+2026-06-09 13:47:22.620737: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 65536, 16
+2026-06-09 13:47:22.620887: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 76800, 2
+2026-06-09 13:47:22.621028: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 98304, 21
+2026-06-09 13:47:22.621171: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 147456, 3
+2026-06-09 13:47:22.621436: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 204600, 9
+2026-06-09 13:47:22.621608: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 221184, 15
+2026-06-09 13:47:22.621908: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 368640, 3
+2026-06-09 13:47:22.622076: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 512000, 6
+2026-06-09 13:47:22.622371: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 614400, 15
+2026-06-09 13:47:22.622569: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 655360, 2
+2026-06-09 13:47:22.622687: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 818400, 2
+2026-06-09 13:47:22.622833: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 819200, 8
+2026-06-09 13:47:22.622971: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1024000, 3
+2026-06-09 13:47:22.623112: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1228800, 10
+2026-06-09 13:47:22.623276: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1636800, 4
+2026-06-09 13:47:22.623423: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1638400, 12
+2026-06-09 13:47:22.623571: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 1843200, 2
+2026-06-09 13:47:22.623717: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 2457600, 2
+2026-06-09 13:47:22.623857: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 3072000, 12
+2026-06-09 13:47:22.624005: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4096000, 1
+2026-06-09 13:47:22.624148: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 4915200, 20
+2026-06-09 13:47:22.624293: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 7372800, 12
+2026-06-09 13:47:22.624620: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 9830400, 12
+2026-06-09 13:47:22.624925: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 10230000, 2
+2026-06-09 13:47:22.625198: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 17801216, 1
+2026-06-09 13:47:22.625479: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 19660800, 2
+2026-06-09 13:47:22.625685: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 20460000, 2
+2026-06-09 13:47:22.625817: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 26214400, 2
+2026-06-09 13:47:22.625926: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 29491200, 6
+2026-06-09 13:47:22.626021: E tensorflow/core/common_runtime/gpu/gpu_cudamallocasync_allocator.cc:59] 78643200, 2
+INFO:tensorflow:Step 100 per-step time 0.983s
+I0609 13:47:45.475810 22876 model_lib_v2.py:705] Step 100 per-step time 0.983s
+INFO:tensorflow:{'Loss/classification_loss': 1.0851805,
+ 'Loss/localization_loss': 0.3385556,
+ 'Loss/regularization_loss': 0.13046,
+ 'Loss/total_loss': 1.5541961,
+ 'learning_rate': 0.005}
+I0609 13:47:45.476820 22876 model_lib_v2.py:708] {'Loss/classification_loss': 1.0851805,
+ 'Loss/localization_loss': 0.3385556,
+ 'Loss/regularization_loss': 0.13046,
+ 'Loss/total_loss': 1.5541961,
+ 'learning_rate': 0.005}
+INFO:tensorflow:Step 200 per-step time 0.190s
+I0609 13:48:04.170640 22876 model_lib_v2.py:705] Step 200 per-step time 0.190s
+INFO:tensorflow:{'Loss/classification_loss': 0.54218346,
+ 'Loss/localization_loss': 0.16537665,
+ 'Loss/regularization_loss': 0.13043433,
+ 'Loss/total_loss': 0.83799446,
+ 'learning_rate': 0.004985345}
+I0609 13:48:04.171644 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.54218346,
+ 'Loss/localization_loss': 0.16537665,
+ 'Loss/regularization_loss': 0.13043433,
+ 'Loss/total_loss': 0.83799446,
+ 'learning_rate': 0.004985345}
+INFO:tensorflow:Step 300 per-step time 0.176s
+I0609 13:48:21.773996 22876 model_lib_v2.py:705] Step 300 per-step time 0.176s
+INFO:tensorflow:{'Loss/classification_loss': 0.68346566,
+ 'Loss/localization_loss': 0.15420406,
+ 'Loss/regularization_loss': 0.13040112,
+ 'Loss/total_loss': 0.96807086,
+ 'learning_rate': 0.0049415515}
+I0609 13:48:21.773996 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.68346566,
+ 'Loss/localization_loss': 0.15420406,
+ 'Loss/regularization_loss': 0.13040112,
+ 'Loss/total_loss': 0.96807086,
+ 'learning_rate': 0.0049415515}
+INFO:tensorflow:Step 400 per-step time 0.185s
+I0609 13:48:40.653658 22876 model_lib_v2.py:705] Step 400 per-step time 0.185s
+INFO:tensorflow:{'Loss/classification_loss': 0.58741796,
+ 'Loss/localization_loss': 0.088745646,
+ 'Loss/regularization_loss': 0.130364,
+ 'Loss/total_loss': 0.8065276,
+ 'learning_rate': 0.004869133}
+I0609 13:48:40.653658 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.58741796,
+ 'Loss/localization_loss': 0.088745646,
+ 'Loss/regularization_loss': 0.130364,
+ 'Loss/total_loss': 0.8065276,
+ 'learning_rate': 0.004869133}
+INFO:tensorflow:Step 500 per-step time 0.183s
+I0609 13:48:58.585755 22876 model_lib_v2.py:705] Step 500 per-step time 0.183s
+INFO:tensorflow:{'Loss/classification_loss': 0.5526887,
+ 'Loss/localization_loss': 0.07050759,
+ 'Loss/regularization_loss': 0.13032624,
+ 'Loss/total_loss': 0.7535226,
+ 'learning_rate': 0.0047689383}
+I0609 13:48:58.585755 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.5526887,
+ 'Loss/localization_loss': 0.07050759,
+ 'Loss/regularization_loss': 0.13032624,
+ 'Loss/total_loss': 0.7535226,
+ 'learning_rate': 0.0047689383}
+INFO:tensorflow:Step 600 per-step time 0.191s
+I0609 13:49:17.675901 22876 model_lib_v2.py:705] Step 600 per-step time 0.191s
+INFO:tensorflow:{'Loss/classification_loss': 0.48916972,
+ 'Loss/localization_loss': 0.063243434,
+ 'Loss/regularization_loss': 0.13028912,
+ 'Loss/total_loss': 0.6827023,
+ 'learning_rate': 0.004642143}
+I0609 13:49:17.675901 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.48916972,
+ 'Loss/localization_loss': 0.063243434,
+ 'Loss/regularization_loss': 0.13028912,
+ 'Loss/total_loss': 0.6827023,
+ 'learning_rate': 0.004642143}
+INFO:tensorflow:Step 700 per-step time 0.187s
+I0609 13:49:36.373919 22876 model_lib_v2.py:705] Step 700 per-step time 0.187s
+INFO:tensorflow:{'Loss/classification_loss': 0.4431991,
+ 'Loss/localization_loss': 0.074562974,
+ 'Loss/regularization_loss': 0.13025112,
+ 'Loss/total_loss': 0.6480132,
+ 'learning_rate': 0.0044902326}
+I0609 13:49:36.373919 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.4431991,
+ 'Loss/localization_loss': 0.074562974,
+ 'Loss/regularization_loss': 0.13025112,
+ 'Loss/total_loss': 0.6480132,
+ 'learning_rate': 0.0044902326}
+INFO:tensorflow:Step 800 per-step time 0.195s
+I0609 13:49:55.855101 22876 model_lib_v2.py:705] Step 800 per-step time 0.195s
+INFO:tensorflow:{'Loss/classification_loss': 0.49902847,
+ 'Loss/localization_loss': 0.12770441,
+ 'Loss/regularization_loss': 0.13021375,
+ 'Loss/total_loss': 0.7569467,
+ 'learning_rate': 0.004314989}
+I0609 13:49:55.856122 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.49902847,
+ 'Loss/localization_loss': 0.12770441,
+ 'Loss/regularization_loss': 0.13021375,
+ 'Loss/total_loss': 0.7569467,
+ 'learning_rate': 0.004314989}
+INFO:tensorflow:Step 900 per-step time 0.186s
+I0609 13:50:14.459188 22876 model_lib_v2.py:705] Step 900 per-step time 0.186s
+INFO:tensorflow:{'Loss/classification_loss': 0.53235996,
+ 'Loss/localization_loss': 0.091176495,
+ 'Loss/regularization_loss': 0.13017817,
+ 'Loss/total_loss': 0.7537146,
+ 'learning_rate': 0.004118466}
+I0609 13:50:14.459188 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.53235996,
+ 'Loss/localization_loss': 0.091176495,
+ 'Loss/regularization_loss': 0.13017817,
+ 'Loss/total_loss': 0.7537146,
+ 'learning_rate': 0.004118466}
+INFO:tensorflow:Step 1000 per-step time 0.199s
+I0609 13:50:34.809502 22876 model_lib_v2.py:705] Step 1000 per-step time 0.199s
+INFO:tensorflow:{'Loss/classification_loss': 0.52533907,
+ 'Loss/localization_loss': 0.083375946,
+ 'Loss/regularization_loss': 0.13014294,
+ 'Loss/total_loss': 0.7388579,
+ 'learning_rate': 0.0039029676}
+I0609 13:50:34.809502 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.52533907,
+ 'Loss/localization_loss': 0.083375946,
+ 'Loss/regularization_loss': 0.13014294,
+ 'Loss/total_loss': 0.7388579,
+ 'learning_rate': 0.0039029676}
+INFO:tensorflow:Step 1100 per-step time 0.221s
+I0609 13:50:56.464447 22876 model_lib_v2.py:705] Step 1100 per-step time 0.221s
+INFO:tensorflow:{'Loss/classification_loss': 0.50992465,
+ 'Loss/localization_loss': 0.04561861,
+ 'Loss/regularization_loss': 0.13010947,
+ 'Loss/total_loss': 0.68565273,
+ 'learning_rate': 0.0036710207}
+I0609 13:50:56.464447 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.50992465,
+ 'Loss/localization_loss': 0.04561861,
+ 'Loss/regularization_loss': 0.13010947,
+ 'Loss/total_loss': 0.68565273,
+ 'learning_rate': 0.0036710207}
+INFO:tensorflow:Step 1200 per-step time 0.188s
+I0609 13:51:15.484193 22876 model_lib_v2.py:705] Step 1200 per-step time 0.188s
+INFO:tensorflow:{'Loss/classification_loss': 0.6129087,
+ 'Loss/localization_loss': 0.054723643,
+ 'Loss/regularization_loss': 0.13007799,
+ 'Loss/total_loss': 0.7977103,
+ 'learning_rate': 0.0034253453}
+I0609 13:51:15.484193 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.6129087,
+ 'Loss/localization_loss': 0.054723643,
+ 'Loss/regularization_loss': 0.13007799,
+ 'Loss/total_loss': 0.7977103,
+ 'learning_rate': 0.0034253453}
+INFO:tensorflow:Step 1300 per-step time 0.198s
+I0609 13:51:35.131233 22876 model_lib_v2.py:705] Step 1300 per-step time 0.198s
+INFO:tensorflow:{'Loss/classification_loss': 0.4162869,
+ 'Loss/localization_loss': 0.07069525,
+ 'Loss/regularization_loss': 0.13004874,
+ 'Loss/total_loss': 0.61703086,
+ 'learning_rate': 0.0031688206}
+I0609 13:51:35.131233 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.4162869,
+ 'Loss/localization_loss': 0.07069525,
+ 'Loss/regularization_loss': 0.13004874,
+ 'Loss/total_loss': 0.61703086,
+ 'learning_rate': 0.0031688206}
+INFO:tensorflow:Step 1400 per-step time 0.194s
+I0609 13:51:54.445533 22876 model_lib_v2.py:705] Step 1400 per-step time 0.194s
+INFO:tensorflow:{'Loss/classification_loss': 0.3921401,
+ 'Loss/localization_loss': 0.04596686,
+ 'Loss/regularization_loss': 0.13002093,
+ 'Loss/total_loss': 0.5681279,
+ 'learning_rate': 0.002904455}
+I0609 13:51:54.445533 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.3921401,
+ 'Loss/localization_loss': 0.04596686,
+ 'Loss/regularization_loss': 0.13002093,
+ 'Loss/total_loss': 0.5681279,
+ 'learning_rate': 0.002904455}
+INFO:tensorflow:Step 1500 per-step time 0.192s
+I0609 13:52:14.059388 22876 model_lib_v2.py:705] Step 1500 per-step time 0.192s
+INFO:tensorflow:{'Loss/classification_loss': 0.56241286,
+ 'Loss/localization_loss': 0.030153291,
+ 'Loss/regularization_loss': 0.129996,
+ 'Loss/total_loss': 0.72256213,
+ 'learning_rate': 0.002635347}
+I0609 13:52:14.059388 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.56241286,
+ 'Loss/localization_loss': 0.030153291,
+ 'Loss/regularization_loss': 0.129996,
+ 'Loss/total_loss': 0.72256213,
+ 'learning_rate': 0.002635347}
+INFO:tensorflow:Step 1600 per-step time 0.195s
+I0609 13:52:33.196635 22876 model_lib_v2.py:705] Step 1600 per-step time 0.195s
+INFO:tensorflow:{'Loss/classification_loss': 0.5554624,
+ 'Loss/localization_loss': 0.039141167,
+ 'Loss/regularization_loss': 0.129973,
+ 'Loss/total_loss': 0.7245766,
+ 'learning_rate': 0.0023646527}
+I0609 13:52:33.198019 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.5554624,
+ 'Loss/localization_loss': 0.039141167,
+ 'Loss/regularization_loss': 0.129973,
+ 'Loss/total_loss': 0.7245766,
+ 'learning_rate': 0.0023646527}
+INFO:tensorflow:Step 1700 per-step time 0.196s
+I0609 13:52:52.842518 22876 model_lib_v2.py:705] Step 1700 per-step time 0.196s
+INFO:tensorflow:{'Loss/classification_loss': 0.37710765,
+ 'Loss/localization_loss': 0.061398953,
+ 'Loss/regularization_loss': 0.12995191,
+ 'Loss/total_loss': 0.5684585,
+ 'learning_rate': 0.0020955447}
+I0609 13:52:52.842518 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.37710765,
+ 'Loss/localization_loss': 0.061398953,
+ 'Loss/regularization_loss': 0.12995191,
+ 'Loss/total_loss': 0.5684585,
+ 'learning_rate': 0.0020955447}
+INFO:tensorflow:Step 1800 per-step time 0.188s
+I0609 13:53:11.605667 22876 model_lib_v2.py:705] Step 1800 per-step time 0.188s
+INFO:tensorflow:{'Loss/classification_loss': 0.46842125,
+ 'Loss/localization_loss': 0.027286101,
+ 'Loss/regularization_loss': 0.12993297,
+ 'Loss/total_loss': 0.62564033,
+ 'learning_rate': 0.001831179}
+I0609 13:53:11.605667 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.46842125,
+ 'Loss/localization_loss': 0.027286101,
+ 'Loss/regularization_loss': 0.12993297,
+ 'Loss/total_loss': 0.62564033,
+ 'learning_rate': 0.001831179}
+INFO:tensorflow:Step 1900 per-step time 0.201s
+I0609 13:53:32.105179 22876 model_lib_v2.py:705] Step 1900 per-step time 0.201s
+INFO:tensorflow:{'Loss/classification_loss': 0.38804114,
+ 'Loss/localization_loss': 0.1601836,
+ 'Loss/regularization_loss': 0.1299163,
+ 'Loss/total_loss': 0.67814106,
+ 'learning_rate': 0.0015746547}
+I0609 13:53:32.105179 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.38804114,
+ 'Loss/localization_loss': 0.1601836,
+ 'Loss/regularization_loss': 0.1299163,
+ 'Loss/total_loss': 0.67814106,
+ 'learning_rate': 0.0015746547}
+INFO:tensorflow:Step 2000 per-step time 0.194s
+I0609 13:53:51.065834 22876 model_lib_v2.py:705] Step 2000 per-step time 0.194s
+INFO:tensorflow:{'Loss/classification_loss': 0.58773464,
+ 'Loss/localization_loss': 0.11121743,
+ 'Loss/regularization_loss': 0.12990202,
+ 'Loss/total_loss': 0.8288541,
+ 'learning_rate': 0.0013289785}
+I0609 13:53:51.066837 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.58773464,
+ 'Loss/localization_loss': 0.11121743,
+ 'Loss/regularization_loss': 0.12990202,
+ 'Loss/total_loss': 0.8288541,
+ 'learning_rate': 0.0013289785}
+INFO:tensorflow:Step 2100 per-step time 0.212s
+I0609 13:54:12.318729 22876 model_lib_v2.py:705] Step 2100 per-step time 0.212s
+INFO:tensorflow:{'Loss/classification_loss': 0.39713058,
+ 'Loss/localization_loss': 0.040012795,
+ 'Loss/regularization_loss': 0.12989002,
+ 'Loss/total_loss': 0.56703335,
+ 'learning_rate': 0.0010970321}
+I0609 13:54:12.318729 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.39713058,
+ 'Loss/localization_loss': 0.040012795,
+ 'Loss/regularization_loss': 0.12989002,
+ 'Loss/total_loss': 0.56703335,
+ 'learning_rate': 0.0010970321}
+INFO:tensorflow:Step 2200 per-step time 0.200s
+I0609 13:54:32.311314 22876 model_lib_v2.py:705] Step 2200 per-step time 0.200s
+INFO:tensorflow:{'Loss/classification_loss': 0.36621875,
+ 'Loss/localization_loss': 0.04717058,
+ 'Loss/regularization_loss': 0.12988003,
+ 'Loss/total_loss': 0.54326934,
+ 'learning_rate': 0.00088153407}
+I0609 13:54:32.311314 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.36621875,
+ 'Loss/localization_loss': 0.04717058,
+ 'Loss/regularization_loss': 0.12988003,
+ 'Loss/total_loss': 0.54326934,
+ 'learning_rate': 0.00088153407}
+INFO:tensorflow:Step 2300 per-step time 0.198s
+I0609 13:54:52.136754 22876 model_lib_v2.py:705] Step 2300 per-step time 0.198s
+INFO:tensorflow:{'Loss/classification_loss': 0.3545818,
+ 'Loss/localization_loss': 0.014846742,
+ 'Loss/regularization_loss': 0.12987202,
+ 'Loss/total_loss': 0.49930057,
+ 'learning_rate': 0.00068501127}
+I0609 13:54:52.136754 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.3545818,
+ 'Loss/localization_loss': 0.014846742,
+ 'Loss/regularization_loss': 0.12987202,
+ 'Loss/total_loss': 0.49930057,
+ 'learning_rate': 0.00068501127}
+INFO:tensorflow:Step 2400 per-step time 0.199s
+I0609 13:55:12.073144 22876 model_lib_v2.py:705] Step 2400 per-step time 0.199s
+INFO:tensorflow:{'Loss/classification_loss': 0.49597764,
+ 'Loss/localization_loss': 0.041785758,
+ 'Loss/regularization_loss': 0.12986583,
+ 'Loss/total_loss': 0.66762924,
+ 'learning_rate': 0.0005097674}
+I0609 13:55:12.073144 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.49597764,
+ 'Loss/localization_loss': 0.041785758,
+ 'Loss/regularization_loss': 0.12986583,
+ 'Loss/total_loss': 0.66762924,
+ 'learning_rate': 0.0005097674}
+INFO:tensorflow:Step 2500 per-step time 0.201s
+I0609 13:55:32.131415 22876 model_lib_v2.py:705] Step 2500 per-step time 0.201s
+INFO:tensorflow:{'Loss/classification_loss': 0.6549485,
+ 'Loss/localization_loss': 0.060267396,
+ 'Loss/regularization_loss': 0.1298613,
+ 'Loss/total_loss': 0.84507716,
+ 'learning_rate': 0.0003578569}
+I0609 13:55:32.131415 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.6549485,
+ 'Loss/localization_loss': 0.060267396,
+ 'Loss/regularization_loss': 0.1298613,
+ 'Loss/total_loss': 0.84507716,
+ 'learning_rate': 0.0003578569}
+INFO:tensorflow:Step 2600 per-step time 0.196s
+I0609 13:55:51.790230 22876 model_lib_v2.py:705] Step 2600 per-step time 0.196s
+INFO:tensorflow:{'Loss/classification_loss': 0.37986955,
+ 'Loss/localization_loss': 0.061918005,
+ 'Loss/regularization_loss': 0.12985817,
+ 'Loss/total_loss': 0.57164574,
+ 'learning_rate': 0.00023106142}
+I0609 13:55:51.790230 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.37986955,
+ 'Loss/localization_loss': 0.061918005,
+ 'Loss/regularization_loss': 0.12985817,
+ 'Loss/total_loss': 0.57164574,
+ 'learning_rate': 0.00023106142}
+INFO:tensorflow:Step 2700 per-step time 0.204s
+I0609 13:56:12.164623 22876 model_lib_v2.py:705] Step 2700 per-step time 0.204s
+INFO:tensorflow:{'Loss/classification_loss': 0.40790892,
+ 'Loss/localization_loss': 0.038640846,
+ 'Loss/regularization_loss': 0.12985624,
+ 'Loss/total_loss': 0.576406,
+ 'learning_rate': 0.00013086706}
+I0609 13:56:12.164623 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.40790892,
+ 'Loss/localization_loss': 0.038640846,
+ 'Loss/regularization_loss': 0.12985624,
+ 'Loss/total_loss': 0.576406,
+ 'learning_rate': 0.00013086706}
+INFO:tensorflow:Step 2800 per-step time 0.195s
+I0609 13:56:31.720613 22876 model_lib_v2.py:705] Step 2800 per-step time 0.195s
+INFO:tensorflow:{'Loss/classification_loss': 0.41130984,
+ 'Loss/localization_loss': 0.024909891,
+ 'Loss/regularization_loss': 0.1298552,
+ 'Loss/total_loss': 0.5660749,
+ 'learning_rate': 5.8448462e-05}
+I0609 13:56:31.720613 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.41130984,
+ 'Loss/localization_loss': 0.024909891,
+ 'Loss/regularization_loss': 0.1298552,
+ 'Loss/total_loss': 0.5660749,
+ 'learning_rate': 5.8448462e-05}
+INFO:tensorflow:Step 2900 per-step time 0.200s
+I0609 13:56:51.614746 22876 model_lib_v2.py:705] Step 2900 per-step time 0.200s
+INFO:tensorflow:{'Loss/classification_loss': 0.43331236,
+ 'Loss/localization_loss': 0.06623777,
+ 'Loss/regularization_loss': 0.12985484,
+ 'Loss/total_loss': 0.62940496,
+ 'learning_rate': 1.4654994e-05}
+I0609 13:56:51.614746 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.43331236,
+ 'Loss/localization_loss': 0.06623777,
+ 'Loss/regularization_loss': 0.12985484,
+ 'Loss/total_loss': 0.62940496,
+ 'learning_rate': 1.4654994e-05}
+INFO:tensorflow:Step 3000 per-step time 0.196s
+I0609 13:57:11.631168 22876 model_lib_v2.py:705] Step 3000 per-step time 0.196s
+INFO:tensorflow:{'Loss/classification_loss': 0.353205,
+ 'Loss/localization_loss': 0.030724559,
+ 'Loss/regularization_loss': 0.12985478,
+ 'Loss/total_loss': 0.51378435,
+ 'learning_rate': 0.0}
+I0609 13:57:11.632187 22876 model_lib_v2.py:708] {'Loss/classification_loss': 0.353205,
+ 'Loss/localization_loss': 0.030724559,
+ 'Loss/regularization_loss': 0.12985478,
+ 'Loss/total_loss': 0.51378435,
+ 'learning_rate': 0.0}
