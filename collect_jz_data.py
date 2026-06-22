@@ -5,9 +5,9 @@ import os
 import time
 
 # ── Config ───────────────────────────────────────
-GESTURES        = ['J', 'Z']
+GESTURES        = ['J'] #, 'Z'
 SEQUENCES       = 30   # 30 videos per gesture
-SEQUENCE_LENGTH = 30   # 30 frames per video
+SEQUENCE_LENGTH = 60   # 30 frames per video
 DATA_PATH       = 'JZ_Data'
 
 # ── MediaPipe setup ──────────────────────────────
@@ -86,7 +86,7 @@ for gesture in GESTURES:
                        (50, 120), cv2.FONT_HERSHEY_SIMPLEX,
                        0.8, (255, 255, 0), 2)
             cv2.imshow('Collecting JZ Data', frame)
-            cv2.waitKey(1)
+            cv2.waitKey(33)
 
         print(f'  ✅ Sequence {seq+1} collected')
 
