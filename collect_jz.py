@@ -2,7 +2,7 @@
 import cv2, numpy as np, mediapipe as mp, os
 
 DATA_PATH       = r"E:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\JZ_Data"
-GESTURES        = ['J']
+GESTURES        = ['J', 'Z']
 SEQUENCES       = 40
 SEQUENCE_LENGTH = 60
 

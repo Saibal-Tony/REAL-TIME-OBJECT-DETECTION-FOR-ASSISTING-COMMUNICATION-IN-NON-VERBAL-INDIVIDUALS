@@ -4,7 +4,7 @@ import mediapipe as mp
 import os
 
 # ── Config ───────────────────────────────────────
-GESTURES        = ['J', 'Z']
+GESTURES        = ['Z'] #'J', 
 SEQUENCES       = 40
 SEQUENCE_LENGTH = 60
 DATA_PATH       = r'E:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\JZ_Data'
