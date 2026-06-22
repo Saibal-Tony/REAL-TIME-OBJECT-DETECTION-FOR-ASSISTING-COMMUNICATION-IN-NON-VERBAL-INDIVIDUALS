@@ -1,0 +1,3 @@
+python collect_jz_data.py
+python train_lstm_jz.py
+python detect_combined.py
