@@ -107,3 +107,5 @@ desktop.ini
 # Colab Upload Folder
 # ─────────────────────────────────────────────
 colab_upload/
+AY_data/Tensorflow
+AY_data/dataset
