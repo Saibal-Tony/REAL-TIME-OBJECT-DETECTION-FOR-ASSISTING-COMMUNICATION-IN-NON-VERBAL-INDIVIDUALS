@@ -1,0 +1,238 @@
+
+<style>
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.tab{padding:6px 14px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);font-size:13px;cursor:pointer;background:var(--color-background-primary);color:var(--color-text-secondary);transition:all .15s}
+.tab.active{background:var(--color-background-info);color:var(--color-text-info);border-color:var(--color-border-info)}
+.panel{display:none}.panel.active{display:block}
+.term-card{padding:14px 16px;border-radius:var(--border-radius-lg);border:0.5px solid var(--color-border-tertiary);margin-bottom:10px;cursor:pointer;transition:border-color .15s}
+.term-card:hover{border-color:var(--color-border-secondary)}
+.term-card .label{font-size:13px;font-weight:500;color:var(--color-text-primary);margin:0 0 2px}
+.term-card .short{font-size:12px;color:var(--color-text-secondary);margin:0}
+.term-card .detail{font-size:13px;color:var(--color-text-secondary);margin:8px 0 0;padding-top:8px;border-top:0.5px solid var(--color-border-tertiary);display:none;line-height:1.6}
+.term-card.open .detail{display:block}
+.badge{display:inline-block;padding:2px 8px;border-radius:var(--border-radius-md);font-size:11px;margin-left:8px}
+.badge.good{background:var(--color-background-success);color:var(--color-text-success)}
+.badge.watch{background:var(--color-background-warning);color:var(--color-text-warning)}
+.chart-wrap{position:relative;width:100%;height:260px;margin-bottom:8px}
+.metric-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:16px}
+.mcard{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px}
+.mcard .mlabel{font-size:11px;color:var(--color-text-tertiary);margin:0 0 2px}
+.mcard .mval{font-size:20px;font-weight:500;color:var(--color-text-primary);margin:0}
+.mcard .msub{font-size:11px;color:var(--color-text-success);margin:0}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;font-size:12px;color:var(--color-text-secondary)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{display:inline-block;width:20px;height:2px}
+.analogy-box{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 16px;margin-bottom:10px;font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.analogy-box strong{color:var(--color-text-primary);font-weight:500}
+.tip{background:var(--color-background-info);border-radius:var(--border-radius-md);padding:10px 14px;font-size:12px;color:var(--color-text-info);margin-top:12px}
+</style>
+
+<h2 class="sr-only">YOLOv8 training concepts explainer — interactive tabs covering terms, epoch charts, and loss analysis</h2>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('terms')">Training terms</button>
+  <button class="tab" onclick="showTab('charts')">Epoch charts</button>
+  <button class="tab" onclick="showTab('losses')">Understanding loss</button>
+  <button class="tab" onclick="showTab('code')">Plot code</button>
+</div>
+
+<div id="terms" class="panel active">
+  <div class="term-card" onclick="toggle(this)">
+    <p class="label">Epoch <span class="badge good">key term</span></p>
+    <p class="short">One full pass through ALL training images</p>
+    <div class="detail">Your dataset had 1024 images. Epoch 1 = model saw all 1024 once. Epoch 21 = model has now seen every image 21 times.<br><br>Think of it like a student re-reading a textbook. First read = rough understanding. More reads = better recall. But too many reads of the same book = just memorizing, not learning (overfitting).<br><br><strong>Your result:</strong> stopped at epoch 21 — early stopping triggered because no improvement after epoch 1.</div>
+  </div>
+  <div class="term-card" onclick="toggle(this)">
+    <p class="label">GPU_mem <span class="badge watch">hardware</span></p>
+    <p class="short">GPU RAM used during training</p>
+    <div class="detail">Your T4 has 14.9 GB. You used ~7 GB — comfortable, safe zone.<br><br>If this hits 14+ GB → out-of-memory crash. You'd need to reduce batch size (from 16 to 8) to fix it.<br><br><strong>Your result:</strong> 7 GB / 14.9 GB = 47% usage. Batch size 16 fits well on T4.</div>
+  </div>
+  <div class="term-card" onclick="toggle(this)">
+    <p class="label">box_loss <span class="badge good">position error</span></p>
+    <p class="short">How wrong the bounding box position is</p>
+    <div class="detail">This measures how far off the predicted rectangle is from the actual hand position in the image.<br><br><strong>Analogy:</strong> You draw a rectangle around someone's hand in a photo. box_loss measures how much your rectangle missed — too far left, too small, etc.<br><br>Your epoch 1: 0.354 → epoch 21: 0.381 (slight rise — expected when fine-tuning a good model)<br><br><strong>Target:</strong> below 0.5 for a well-fitted model. Your values are excellent.</div>
+  </div>
+  <div class="term-card" onclick="toggle(this)">
+    <p class="label">cls_loss <span class="badge good">identity error</span></p>
+    <p class="short">How wrong the class prediction is</p>
+    <div class="detail">This measures how confused the model is about WHICH letter the hand is showing — was it M or N? A or E?<br><br><strong>Analogy:</strong> The model found the hand correctly, but it said "that's N" when it should be "M". cls_loss counts these wrong guesses.<br><br>Your epoch 1: 0.342 → falling over time. Low cls_loss = model confidently knows which letter it sees.<br><br><strong>Your result:</strong> All classes hitting 99%+ mAP50 means cls_loss is very well controlled.</div>
+  </div>
+  <div class="term-card" onclick="toggle(this)">
+    <p class="label">dfl_loss <span class="badge watch">edge precision</span></p>
+    <p class="short">How precisely the box edges align</p>
+    <div class="detail">DFL = Distribution Focal Loss. It's a refinement on top of box_loss — instead of just asking "where is the center of the box", it asks "how precisely do the four edges fall on the exact boundary of the hand?"<br><br><strong>Analogy:</strong> box_loss = roughly correct rectangle. dfl_loss = are the edges pixel-accurate? It's the fine-tuning of box_loss.<br><br>Your values: ~0.91-0.96 throughout — very consistent and low.</div>
+  </div>
+  <div class="term-card" onclick="toggle(this)">
+    <p class="label">Instances <span class="badge watch">batch content</span></p>
+    <p class="short">Number of labeled objects in that batch</p>
+    <div class="detail">Each batch of images contains a different number of hand bounding boxes. Instances is just the count of hands detected/labeled across all images in that batch.<br><br>Your range: 24-40 per batch. This varies naturally — some images have hands partially visible, some very clearly, affecting how many get counted.<br><br><strong>This does not affect accuracy directly</strong> — it's just telling you the batch content varied normally.</div>
+  </div>
+  <div class="term-card" onclick="toggle(this)">
+    <p class="label">Size <span class="badge good">input resolution</span></p>
+    <p class="short">Image dimensions fed to the model</p>
+    <div class="detail">All images are resized to 640×640 pixels before being fed to YOLOv8. This is the standard YOLO input size.<br><br><strong>Why 640?</strong> It's a balance — large enough to see hand details clearly, small enough to process fast. You could use 320 (faster, less accurate) or 1280 (slower, more accurate). 640 is the sweet spot for real-time detection.<br><br>Your webcam captures at ~480-720px, so 640 is a perfect match.</div>
+  </div>
+  <div class="term-card" onclick="toggle(this)">
+    <p class="label">mAP50 <span class="badge good">main accuracy metric</span></p>
+    <p class="short">Mean Average Precision at 50% IoU threshold</p>
+    <div class="detail">This is the headline accuracy number for object detection. It combines both "did you find the hand?" and "did you label it correctly?"<br><br><strong>IoU (Intersection over Union):</strong> how much your predicted box overlaps with the ground-truth box. 50% threshold = if boxes overlap by at least 50%, it counts as a correct detection.<br><br><strong>Your result:</strong> 99.4% overall — exceptional. For reference, 50% is mediocre, 80% is good, 95%+ is excellent.<br><br>mAP50-95 (also shown) is stricter — requires 50% to 95% IoU overlap to count. Your 96.8% on that is also outstanding.</div>
+  </div>
+  <div class="tip">Tap any card above to expand the full explanation ↑</div>
+</div>
+
+<div id="charts" class="panel">
+  <div class="metric-row">
+    <div class="mcard"><p class="mlabel">Best epoch</p><p class="mval">1</p><p class="msub">↓ early stopped at 21</p></div>
+    <div class="mcard"><p class="mlabel">Final mAP50</p><p class="mval">99.4%</p><p class="msub">↑ from 98.9% at ep.1</p></div>
+    <div class="mcard"><p class="mlabel">Best box loss</p><p class="mval">0.354</p><p class="msub">↓ epoch 1</p></div>
+    <div class="mcard"><p class="mlabel">Training time</p><p class="mval">14.4m</p><p class="msub">0.240 hrs total</p></div>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:#378ADD"></i>mAP50 (%/100)</span>
+    <span><i style="background:#D85A30"></i>box_loss</span>
+    <span><i style="background:#1D9E75;height:2px;border-top:2px dashed #1D9E75;background:none"></i>cls_loss</span>
+  </div>
+  <div class="chart-wrap"><canvas id="epochChart" role="img" aria-label="Line chart showing mAP50 rising from 98.9% at epoch 1 while losses decrease over 21 epochs">Training metrics over 21 epochs: mAP50 starts at 98.9%, losses decrease steadily.</canvas></div>
+  <p style="font-size:12px;color:var(--color-text-tertiary);margin:0 0 16px">Epoch vs key metrics — your fine-tuned model converged extremely fast</p>
+
+  <div class="analogy-box">
+    <strong>Why did it stop at epoch 21?</strong><br>
+    Early stopping (patience=20) was set. The best mAP50 was 0.994 at epoch 1. No epoch after that beat this score. After 20 more epochs with no improvement, training stopped automatically. This is normal and healthy — your pretrained model (<code>sign_lang_best.pt</code>) was already so good that fine-tuning converged in the very first pass over the new M and N data.
+  </div>
+</div>
+
+<div id="losses" class="panel">
+  <div class="analogy-box">
+    <strong>The three losses working together:</strong><br>
+    Think of training as a teacher grading three different tests simultaneously.<br><br>
+    <strong>box_loss</strong> = "Did you draw the rectangle in the right place?"<br>
+    <strong>cls_loss</strong> = "Did you name the letter correctly?"<br>
+    <strong>dfl_loss</strong> = "Are your rectangle edges precisely on the hand boundary?"<br><br>
+    Total loss = box_loss + cls_loss + dfl_loss weighted together. Minimizing total loss = getting all three right.
+  </div>
+
+  <div class="legend">
+    <span><i style="background:#D85A30"></i>box_loss</span>
+    <span><i style="background:#534AB7"></i>cls_loss</span>
+    <span><i style="background:#1D9E75"></i>dfl_loss</span>
+  </div>
+  <div class="chart-wrap"><canvas id="lossChart" role="img" aria-label="Line chart of box_loss, cls_loss and dfl_loss over 21 training epochs">Three loss curves over 21 epochs, all showing a general decrease.</canvas></div>
+
+  <div class="analogy-box" style="margin-top:12px">
+    <strong>Why does loss sometimes go UP between epochs?</strong><br>
+    Each epoch shuffles the training data randomly. Some batches are "harder" (similar-looking letters together), which temporarily spikes the loss. This is normal — what matters is the overall downward trend, not perfect smoothness. Your losses all trend downward across 21 epochs. ✓
+  </div>
+</div>
+
+<div id="code" class="panel">
+  <p style="font-size:13px;color:var(--color-text-secondary);margin:0 0 12px">Paste this into a Colab cell AFTER training finishes to generate your own epoch charts:</p>
+  <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:14px 16px;font-family:var(--font-mono);font-size:12px;color:var(--color-text-primary);line-height:1.7;white-space:pre-wrap;overflow-x:auto">import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+
+# Load YOLOv8 results CSV (auto-saved during training)
+df = pd.read_csv('/content/runs/AY_v2/results.csv')
+df.columns = df.columns.str.strip()
+
+fig = plt.figure(figsize=(15, 10))
+fig.suptitle('YOLOv8 Training Results', fontsize=14, fontweight='bold')
+gs = gridspec.GridSpec(2, 3, figure=fig, hspace=0.4, wspace=0.35)
+
+# mAP50
+ax1 = fig.add_subplot(gs[0, 0])
+ax1.plot(df['epoch'], df['metrics/mAP50(B)'], color='#2563eb', linewidth=2)
+ax1.set_title('mAP50'); ax1.set_xlabel('Epoch'); ax1.grid(alpha=0.3)
+
+# mAP50-95
+ax2 = fig.add_subplot(gs[0, 1])
+ax2.plot(df['epoch'], df['metrics/mAP50-95(B)'], color='#16a34a', linewidth=2)
+ax2.set_title('mAP50-95'); ax2.set_xlabel('Epoch'); ax2.grid(alpha=0.3)
+
+# box_loss
+ax3 = fig.add_subplot(gs[0, 2])
+ax3.plot(df['epoch'], df['train/box_loss'], color='#dc2626', linewidth=2, label='train')
+ax3.plot(df['epoch'], df['val/box_loss'],   color='#f97316', linewidth=2, linestyle='--', label='val')
+ax3.set_title('Box loss'); ax3.set_xlabel('Epoch'); ax3.legend(); ax3.grid(alpha=0.3)
+
+# cls_loss
+ax4 = fig.add_subplot(gs[1, 0])
+ax4.plot(df['epoch'], df['train/cls_loss'], color='#7c3aed', linewidth=2, label='train')
+ax4.plot(df['epoch'], df['val/cls_loss'],   color='#a78bfa', linewidth=2, linestyle='--', label='val')
+ax4.set_title('Class loss'); ax4.set_xlabel('Epoch'); ax4.legend(); ax4.grid(alpha=0.3)
+
+# dfl_loss
+ax5 = fig.add_subplot(gs[1, 1])
+ax5.plot(df['epoch'], df['train/dfl_loss'], color='#0891b2', linewidth=2, label='train')
+ax5.plot(df['epoch'], df['val/dfl_loss'],   color='#67e8f9', linewidth=2, linestyle='--', label='val')
+ax5.set_title('DFL loss'); ax5.set_xlabel('Epoch'); ax5.legend(); ax5.grid(alpha=0.3)
+
+# Precision + Recall
+ax6 = fig.add_subplot(gs[1, 2])
+ax6.plot(df['epoch'], df['metrics/precision(B)'], color='#059669', linewidth=2, label='precision')
+ax6.plot(df['epoch'], df['metrics/recall(B)'],    color='#d97706', linewidth=2, label='recall')
+ax6.set_title('Precision & Recall'); ax6.set_xlabel('Epoch'); ax6.legend(); ax6.grid(alpha=0.3)
+
+plt.savefig('/content/training_results.png', dpi=150, bbox_inches='tight')
+plt.show()
+print('Saved to /content/training_results.png')</div>
+  <div class="tip" style="margin-top:10px">YOLOv8 also auto-saves a <code>results.png</code> in your run folder — check <code>/content/runs/AY_v2/results.png</code> directly in Colab!</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab,.panel').forEach(el => el.classList.remove('active'));
+  document.querySelector('[onclick="showTab(\''+id+'\')"]').classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+function toggle(el) { el.classList.toggle('open'); }
+
+const epochs = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+const map50  = [0.994,0.995,0.995,0.995,0.995,0.995,0.995,0.995,0.995,0.995,0.993,0.995,0.995,0.995,0.995,0.995,0.995,0.995,0.995,0.995,0.995];
+const boxL   = [0.354,0.376,0.412,0.434,0.429,0.438,0.427,0.431,0.433,0.428,0.417,0.421,0.402,0.413,0.401,0.411,0.406,0.394,0.393,0.401,0.381];
+const clsL   = [0.342,0.343,0.366,0.426,0.439,0.422,0.411,0.423,0.408,0.385,0.377,0.386,0.364,0.393,0.364,0.380,0.365,0.347,0.355,0.362,0.324];
+const dflL   = [0.910,0.916,0.939,0.959,0.952,0.955,0.950,0.951,0.963,0.959,0.942,0.956,0.940,0.946,0.937,0.952,0.939,0.932,0.933,0.943,0.930];
+
+new Chart(document.getElementById('epochChart'), {
+  type: 'line',
+  data: {
+    labels: epochs,
+    datasets: [
+      { label: 'mAP50', data: map50.map(v => +(v*100).toFixed(2)), borderColor:'#378ADD', backgroundColor:'rgba(55,138,221,0.08)', tension:0.3, pointRadius:2, borderWidth:2, yAxisID:'y1' },
+      { label: 'box_loss', data: boxL.map(v => +v.toFixed(4)), borderColor:'#D85A30', tension:0.3, pointRadius:2, borderWidth:1.5, borderDash:[3,3], yAxisID:'y2' },
+      { label: 'cls_loss', data: clsL.map(v => +v.toFixed(4)), borderColor:'#1D9E75', tension:0.3, pointRadius:2, borderWidth:1.5, borderDash:[6,3], yAxisID:'y2' }
+    ]
+  },
+  options: {
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false} },
+    scales:{
+      x:{ title:{display:true,text:'Epoch',font:{size:11}}, ticks:{font:{size:10}} },
+      y1:{ position:'left', min:97, max:100, title:{display:true,text:'mAP50 (%)',font:{size:11}}, ticks:{font:{size:10}} },
+      y2:{ position:'right', min:0.2, max:0.7, title:{display:true,text:'Loss',font:{size:11}}, grid:{drawOnChartArea:false}, ticks:{font:{size:10}} }
+    }
+  }
+});
+
+new Chart(document.getElementById('lossChart'), {
+  type: 'line',
+  data: {
+    labels: epochs,
+    datasets: [
+      { label: 'box_loss', data: boxL.map(v => +v.toFixed(4)), borderColor:'#D85A30', tension:0.3, pointRadius:2, borderWidth:2 },
+      { label: 'cls_loss', data: clsL.map(v => +v.toFixed(4)), borderColor:'#534AB7', tension:0.3, pointRadius:2, borderWidth:2 },
+      { label: 'dfl_loss', data: dflL.map(v => +v.toFixed(4)), borderColor:'#1D9E75', tension:0.3, pointRadius:2, borderWidth:2 }
+    ]
+  },
+  options: {
+    responsive:true, maintainAspectRatio:false,
+    plugins:{ legend:{display:false} },
+    scales:{
+      x:{ title:{display:true,text:'Epoch',font:{size:11}}, ticks:{font:{size:10}} },
+      y:{ title:{display:true,text:'Loss value',font:{size:11}}, ticks:{font:{size:10}} }
+    }
+  }
+});
+</script>

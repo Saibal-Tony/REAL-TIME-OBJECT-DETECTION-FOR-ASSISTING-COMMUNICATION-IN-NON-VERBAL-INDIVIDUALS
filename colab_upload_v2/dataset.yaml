@@ -1,0 +1,30 @@
+names:
+- A
+- B
+- C
+- D
+- E
+- F
+- G
+- H
+- I
+- K
+- L
+- M
+- N
+- O
+- P
+- Q
+- R
+- S
+- T
+- U
+- V
+- W
+- X
+- Y
+nc: 24
+path: E:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN
+  NON-VERBAL INDIVIDUALS\AY_data\dataset
+train: images/train
+val: images/val
