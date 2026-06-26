@@ -2,7 +2,7 @@
 import cv2, os, time
 
 RAW_PATH = r"E:\Study\Projects\REAL-TIME OBJECT DETECTION FOR ASSISTING COMMUNICATION IN NON-VERBAL INDIVIDUALS\AY_data\Tensorflow\workspace\images\collectedimages"
-CLASSES  = ['M', 'N']
+CLASSES  = ['C', 'D', 'G']
 TARGET   = 20
 
 cap = cv2.VideoCapture(0)
